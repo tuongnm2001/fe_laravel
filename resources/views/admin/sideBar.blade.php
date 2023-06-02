@@ -2,7 +2,7 @@
 <div id="kt_app_sidebar" class="app-sidebar flex-column" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="250px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
     <div class="app-sidebar-header d-flex flex-stack d-none d-lg-flex pt-8 pb-2" id="kt_app_sidebar_header">
         <!--begin::Logo-->
-        <a href="#" class="app-sidebar-logo">
+        <a href="https://www.vira.vn/" class="app-sidebar-logo">
             <img alt="Logo" src="assets/media/logos/vira-logo.png" class="h-25px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
             <img alt="Logo" src="assets/media/logos/vira-logo.png" class="h-20px h-lg-25px theme-dark-show" />
         </a>
@@ -1194,7 +1194,7 @@
                 <div class="app-sidebar-separator separator"></div>
                 <!--end::Separator-->
                 
-                 <!--begin:Menu item Google-->
+                 <!--begin:Menu item User Management-->
                 <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                     <!--begin:Menu link-->
                     <span class="menu-link">

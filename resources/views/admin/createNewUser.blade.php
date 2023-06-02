@@ -45,7 +45,7 @@
                                     <i class="fa-solid fa-angles-right"></i> &nbsp;
                                 </li>
 
-                                &nbsp; <a href="#" >New Users</a>
+                                &nbsp; <div class="text-success" >New Users</div>
                                 <!--end::Item-->
                             </ul>
                             <!--end::Breadcrumb-->
