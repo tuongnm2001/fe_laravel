@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,14 @@ Route::get('/', function () {
 });
 
 Route::prefix('admin')->group(function(){
+
     Route::get('/home', [HomeController::class , 'index']);
-    Route::get('/listService', [HomeController::class , 'listService']);
-    Route::get('/createNewUser', [HomeController::class , 'createNewUser']);
+
+    #User
+    Route::get('/listService', [UserController::class , 'listService']);
+    
+    Route::get('/createNewUser', [UserController::class , 'create']);
+    Route::post('/createNewUser', [UserController::class , 'store']);
+
     Route::get('/dashboard', [HomeController::class , 'dashboard']);
 });

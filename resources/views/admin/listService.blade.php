@@ -1,5 +1,6 @@
 @extends('admin.home')
 
+
 @section('content')
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -47,7 +48,7 @@
                         <!--end::Page title-->
                         <!--begin::Actions-->
                         <div class="d-flex align-items-center gap-2 gap-lg-3">
-                            <a href="#" class="btn btn-flex btn-success h-40px fs-7 fw-bold" data-bs-toggle="modal" data-bs-target="#kt_modal_create_campaign">CREATE NEW USER</a>
+                            <a href="/admin/createNewUser" class="btn btn-flex btn-success h-40px fs-7 fw-bold" >CREATE NEW USER</a>
                         </div>
                         <!--end::Actions-->
                     </div>
@@ -128,11 +129,11 @@
                             <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                                 <thead>
                                     <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                        <th class="w-10px pe-2">
+                                        {{-- <th class="w-10px pe-2">
                                             <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                                 <input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_table_users .form-check-input" value="1" />
                                             </div>
-                                        </th>
+                                        </th> --}}
                                         <th class="min-w-125px">Registation Date</th>
                                         <th class="min-w-125px">Avatar</th>
                                         <th class="min-w-125px">FullName</th>
@@ -145,261 +146,71 @@
                                     </tr>
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold">
+                                    @foreach ($listUsers as $item)                                       
                                     <tr>
-                                        <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="1" />
-                                            </div>
-                                        </td>
-                                        <td>2023-05-21 15:11:11</td>
+                                            {{-- <td>
+                                                <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                    <input class="form-check-input" type="checkbox" value="1" />
+                                                </div>
+                                            </td> --}}
+                                            <td>{{ $item->updated_at }}</td>
 
-                                        <td class="d-flex align-items-center">
-                                            <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                                <a href="../../demo38/dist/apps/user-management/users/view.html">
-                                                    <div class="symbol-label">
-                                                        <img src="assets/media/avatars/1.jpg" alt="Emma Smith" class="w-100" />
+                                            <td class="d-flex align-items-center">
+                                                <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
+                                                    <a href="../../demo38/dist/apps/user-management/users/view.html">
+                                                        <div class="symbol-label">
+                                                            <img src="{{ $item->profile_photo_path }}" alt="" class="w-100" />
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <a href="../../demo38/dist/apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">{{ $item->name }}</a>
+                                            </td>
+
+                                            <td>
+                                                <div class="d-flex flex-column">
+                                                    <span>{{ $item->email }}</span>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                <div class="badge badge-light-primary">{{ $item->status }}</div>
+                                            </td>
+
+                                            <td>
+                                                <div>{{ $item->balance }}</div>
+                                            </td>
+
+                                            <td>
+                                                <div>{{ $item->available_chars }}</div>
+                                            </td>
+                                            
+                                            <td>
+                                                <div class="badge badge-secondary">{{ $item->group }}</div>
+                                            </td>
+                                            
+                                            <td class="text-end">
+                                                <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                <i class="ki-outline ki-down fs-5 ms-1"></i></a>
+                                                <!--begin::Menu-->
+                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="../../demo38/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
                                                     </div>
-                                                </a>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <a href="../../demo38/dist/apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">Nam Dinh Tran</a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex flex-column">
-                                                <span>trandinhnam891@gmail.com</span>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="badge badge-light-primary">Active</div>
-                                        </td>
-
-                                        <td>
-                                            <div>$0</div>
-                                        </td>
-
-                                        <td>
-                                            <div>1,000</div>
-                                        </td>
-                                        
-                                        <td>
-                                            <div class="badge badge-secondary">User</div>
-                                        </td>
-                                        
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                            <i class="ki-outline ki-down fs-5 ms-1"></i></a>
-                                            <!--begin::Menu-->
-                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="../../demo38/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                            </div>
-                                            <!--end::Menu-->
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="1" />
-                                            </div>
-                                        </td>
-                                        <td>2021-09-05 19:11:46</td>
-
-                                        <td class="d-flex align-items-center">
-                                            <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                                <a href="../../demo38/dist/apps/user-management/users/view.html">
-                                                    <div class="symbol-label">
-                                                        <img src="assets/media/avatars/1.jpg" alt="Emma Smith" class="w-100" />
+                                                    <!--end::Menu item-->
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
                                                     </div>
-                                                </a>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <a href="../../demo38/dist/apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">Tran Dinh Nam</a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex flex-column">
-                                                <span>test1@poly.com</span>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="badge badge-light-primary">Active</div>
-                                        </td>
-
-                                        <td>
-                                            <div>$0</div>
-                                        </td>
-
-                                        <td>
-                                            <div>14,350,559</div>
-                                        </td>
-                                        
-                                        <td>
-                                            <div class="badge badge-primary">Subscriber</div>
-                                        </td>
-                                        
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                            <i class="ki-outline ki-down fs-5 ms-1"></i></a>
-                                            <!--begin::Menu-->
-                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="../../demo38/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
+                                                    <!--end::Menu item-->
                                                 </div>
-                                                <!--end::Menu item-->
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                            </div>
-                                            <!--end::Menu-->
-                                        </td>
-                                    </tr>
-                                    
-                                    <tr>
-                                        <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="1" />
-                                            </div>
-                                        </td>
-                                        <td>2021-09-04 03:43:22</td>
-
-                                        <td class="d-flex align-items-center">
-                                            <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                                <a href="../../demo38/dist/apps/user-management/users/view.html">
-                                                    <div class="symbol-label">
-                                                        <img src="assets/media/avatars/1.jpg" alt="Emma Smith" class="w-100" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <a href="../../demo38/dist/apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">Tran Dinh Nam</a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex flex-column">
-                                                <span>trandinhnam891@gmail.com</span>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="badge badge-light-primary">Active</div>
-                                        </td>
-
-                                        <td>
-                                            <div>$255879</div>
-                                        </td>
-
-                                        <td>
-                                            <div>3,447,391</div>
-                                        </td>
-                                        
-                                        <td>
-                                            <div class="badge badge-primary">Subscriber</div>
-                                        </td>
-                                        
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                            <i class="ki-outline ki-down fs-5 ms-1"></i></a>
-                                            <!--begin::Menu-->
-                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="../../demo38/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                            </div>
-                                            <!--end::Menu-->
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" type="checkbox" value="1" />
-                                            </div>
-                                        </td>
-                                        <td>2021-09-04 03:40:12</td>
-
-                                        <td class="d-flex align-items-center">
-                                            <div class="symbol symbol-circle symbol-50px overflow-hidden me-3">
-                                                <a href="../../demo38/dist/apps/user-management/users/view.html">
-                                                    <div class="symbol-label">
-                                                        <img src="assets/media/avatars/1.jpg" alt="Emma Smith" class="w-100" />
-                                                    </div>
-                                                </a>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <a href="../../demo38/dist/apps/user-management/users/view.html" class="text-gray-800 text-hover-primary mb-1">Admin</a>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex flex-column">
-                                                <span>admin@admin.com</span>
-                                            </div>
-                                        </td>
-
-                                        <td>
-                                            <div class="badge badge-light-primary">Active</div>
-                                        </td>
-
-                                        <td>
-                                            <div>$0</div>
-                                        </td>
-
-                                        <td>
-                                            <div>1</div>
-                                        </td>
-                                        
-                                        <td>
-                                            <div class="badge badge-danger">Admin</div>
-                                        </td>
-                                        
-                                        <td class="text-end">
-                                            <a href="#" class="btn btn-light btn-active-light-primary btn-flex btn-center btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                            <i class="ki-outline ki-down fs-5 ms-1"></i></a>
-                                            <!--begin::Menu-->
-                                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="../../demo38/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                            </div>
-                                            <!--end::Menu-->
-                                        </td>
-                                    </tr>
+                                                <!--end::Menu-->
+                                            </td>
+                                        </tr>
+                                        @endforeach
                                 </tbody>
                             </table>
                             <!--end::Table-->

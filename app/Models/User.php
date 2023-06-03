@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -19,8 +20,33 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'job_role',
         'email',
+        'email_verified_at',
         'password',
+        'status',
+        'plan_id',
+        'group',
+        'company',
+        'website',
+        'phone_number',
+        'address',
+        'city',
+        'postal_code',
+        'country',
+        'available_chars',
+        'balance',
+        'profile_photo_path',
+        'oauth_id',
+        'oauth_type',
+        'remember_token',
+        'created_at',
+        'updated_at',
+        'referral_id',
+        'referred_by',
+        'referral_payment_method',
+        'referral_paypal',
+        'referral_bank_requisites'
     ];
 
     /**
@@ -41,4 +67,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setPasswordAttribute($password){
+        $this->attributes['password'] = Hash::make($password);
+    }
 }

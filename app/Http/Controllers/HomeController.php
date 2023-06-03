@@ -10,12 +10,6 @@ class HomeController extends Controller{
         return view('admin.home');
     }
 
-    public function listService(){
-        return view('admin.listService',[
-            'title'=>"All Registered Users"
-        ]);
-    }
-
     public function createNewUser(){
         return view('admin.createNewUser',[
             'title'=>'Create New User'

@@ -1,7 +1,7 @@
 @extends('admin.home')
 
 @section('content')
-    <!--begin::Main-->
+        <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
         <!--begin::Content wrapper-->
         <div class="d-flex flex-column flex-column-fluid">
@@ -68,6 +68,7 @@
                             <div class="app-sidebar-separator separator"></div>
                         <!--end::Separator-->
 
+                        {{-- @include('admin.alert') --}}
 
                         <div class="card-header border-0 pt-6">
                             <!--begin::Card toolbar 25-->
@@ -90,23 +91,25 @@
                         <!--end::Card header-->
                         <!--begin::Card body-->
                         <div class="card-body py-4">
-                            <form class="row g-3">
+                            @include('admin.alert')
+                            <form class="row g-3" action="" method="POST">
                                 <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label">Full Name (Required)</label>
-                                    <input type="text" class="form-control" id="inputEmail4">
+                                    <label class="form-label">Full Name (Required)</label>
+                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Email Address (Required)</label>
-                                    <input type="email" class="form-control" id="inputPassword4">
+                                    <label class="form-label">Email Address (Required)</label>
+                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
                                 </div>
-                               
+                            
                                 <div class="col-md-6">
-                                    <label for="inputEmail4" class="form-label">New Password (Required)</label>
-                                    <input type="password" class="form-control" id="inputEmail4">
+                                    <label class="form-label">New Password (Required)</label>
+                                    <input type="password" class="form-control" name="password" value="{{ old('newPassword') }}">
                                 </div>
+
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Confirm New Password (Required)</label>
-                                    <input type="password" class="form-control" id="inputPassword4">
+                                    <label class="form-label">Confirm New Password (Required)</label>
+                                    <input type="password" class="form-control" name="confirmNewPassword" value="{{ old('confirmNewPassword') }}">
                                 </div>
 
                                 <div class="col-md-6">
@@ -122,44 +125,44 @@
                                 <!--end::Separator-->
 
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">User Role (Required)</label>
-                                    <input type="text" class="form-control" id="inputPassword4">
+                                    <label class="form-label">Job Role (Optional)</label>
+                                    <input type="text" class="form-control" name="job_role" value="{{ old('job_role') }}">
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Phone Number (Optional)</label>
-                                    <input type="text" class="form-control" id="inputPassword4">
+                                    <label class="form-label">Phone Number (Optional)</label>
+                                    <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}">
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Company Name (Optional)</label>
-                                    <input type="text" class="form-control" id="inputPassword4">
+                                    <label class="form-label">Company Name (Optional)</label>
+                                    <input type="text" class="form-control" name="company" value="{{ old('company') }}">
                                 </div>
 
                                 <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Company Website (Optional)</label>
-                                    <input type="text" class="form-control" id="inputPassword4">
+                                    <label class="form-label">Company Website (Optional)</label>
+                                    <input type="text" class="form-control" name="website" value="{{ old('website') }}">
                                 </div>
 
                                 <div class="col-12">
                                     <label for="inputAddress2" class="form-label">Address Line (Optional)</label>
-                                    <input type="text" class="form-control" id="inputAddress2" />
+                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}"/>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputCity" class="form-label">City (Optional)</label>
-                                    <input type="text" class="form-control" id="inputCity">
+                                    <input type="text" class="form-control" name="city" value="{{ old('city') }}">
                                 </div>
                                 
                                 <div class="col-md-4">
                                     <label for="inputZip" class="form-label">Postal Code (Optional)</label>
-                                    <input type="text" class="form-control" id="inputZip">
+                                    <input type="text" class="form-control" name="postal_code" value="{{ old('postal_code') }}">
                                 </div>
                                 
                                 <div class="col-md-4">
-                                    <label for="inputState" class="form-label">Country (Required) </label>
+                                    <label for="inputState" class="form-label">Country (Optional) </label>
                                     <select id="inputState" class="form-select">
-                                        <option value="0" selected>Select User Country</option>
-                                        <option value="1">Vietnam</option>
+                                        <option value="0">Select User Country</option>
+                                        <option value="1" selected>Vietnam</option>
                                         <option value="1">China</option>
                                         <option value="1">Uk</option>
                                     </select>
@@ -167,8 +170,9 @@
 
                                 <div class="col-12 d-flex justify-content-end my-5">
                                     <button type="submit" class="btn btn-dark mx-3">Return</button>
-                                    <button type="submit" class="btn btn-primary ">Sign in</button>
+                                    <button type="submit" class="btn btn-success ">CREATE</button>
                                 </div>
+                                 @csrf
                             </form>
                         </div>
                         <!--end::Card body-->
