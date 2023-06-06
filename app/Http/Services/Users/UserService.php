@@ -17,7 +17,6 @@ class UserService{
 
        try {
             $request->except('_token');
-            $hashPassword = $request->input('password');
             User::create($request->all());
             $request->session()->flash('success', 'Thêm user thành công');
        } catch (\Exception $err) {

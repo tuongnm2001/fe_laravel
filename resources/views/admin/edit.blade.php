@@ -75,7 +75,7 @@
                             <div class="card-toolbar my-2 mx-2">
                                 <!--begin::Toolbar-->
                                 <div class="d-flex justify-content-end" data-kt-user-table-toolbar="base">
-                                    <h3>Create New User</h3>
+                                    <h3>Edit User</h3>
                                 </div>
                                 <!--end::Toolbar-->
                                 <!--end::Modal - Add task-->
@@ -95,21 +95,21 @@
                             <form class="row g-3" action="" method="POST">
                                 <div class="col-md-6">
                                     <label class="form-label">Full Name (Required)</label>
-                                    <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                    <input type="text" class="form-control" name="name" value="{{ $users->name }}">
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">Email Address (Required)</label>
-                                    <input type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                    <input type="email" class="form-control" name="email" value="{{ $users->email }}">
                                 </div>
                             
                                 <div class="col-md-6">
                                     <label class="form-label">New Password (Required)</label>
-                                    <input type="password" class="form-control" name="password" value="{{ old('newPassword') }}">
+                                    <input type="password" class="form-control" name="password" value="{{ "********"}}" readonly>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="form-label">Confirm New Password (Required)</label>
-                                    <input type="password" class="form-control" name="password_confirmation" value="{{ old('confirmNewPassword') }}">
+                                    <input type="password" class="form-control" name="confirmNewPassword" value="{{ "********"}}" readonly>
                                 </div>
 
                                 <div class="col-md-6">
@@ -126,36 +126,36 @@
 
                                 <div class="col-md-6">
                                     <label class="form-label">Job Role (Optional)</label>
-                                    <input type="text" class="form-control" name="job_role" value="{{ old('job_role') }}">
+                                    <input type="text" class="form-control" name="job_role" value="{{ $users->job_role }}">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="form-label">Phone Number (Optional)</label>
-                                    <input type="text" class="form-control" name="phone_number" value="{{ old('phone_number') }}">
+                                    <input type="text" class="form-control" name="phone_number" value="{{ $users->phone_number }}">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="form-label">Company Name (Optional)</label>
-                                    <input type="text" class="form-control" name="company" value="{{ old('company') }}">
+                                    <input type="text" class="form-control" name="company" value="{{ $users->company }}">
                                 </div>
 
                                 <div class="col-md-6">
                                     <label class="form-label">Company Website (Optional)</label>
-                                    <input type="text" class="form-control" name="website" value="{{ old('website') }}">
+                                    <input type="text" class="form-control" name="website" value="{{ $users->website }}">
                                 </div>
 
                                 <div class="col-12">
                                     <label for="inputAddress2" class="form-label">Address Line (Optional)</label>
-                                    <input type="text" class="form-control" name="address" value="{{ old('address') }}"/>
+                                    <input type="text" class="form-control" name="address" value="{{ $users->address }}"/>
                                 </div>
                                 <div class="col-md-4">
                                     <label for="inputCity" class="form-label">City (Optional)</label>
-                                    <input type="text" class="form-control" name="city" value="{{ old('city') }}">
+                                    <input type="text" class="form-control" name="city" value="{{ $users->city }}">
                                 </div>
                                 
                                 <div class="col-md-4">
                                     <label for="inputZip" class="form-label">Postal Code (Optional)</label>
-                                    <input type="text" class="form-control" name="postal_code" value="{{ old('postal_code') }}">
+                                    <input type="text" class="form-control" name="postal_code" value="{{ $users->postal_code }}">
                                 </div>
                                 
                                 <div class="col-md-4">
@@ -170,7 +170,7 @@
 
                                 <div class="col-12 d-flex justify-content-end my-5">
                                     <button type="submit" class="btn btn-dark mx-3">Return</button>
-                                    <button type="submit" class="btn btn-success ">CREATE</button>
+                                    <button type="submit" class="btn btn-success ">UPDATE</button>
                                 </div>
                                  @csrf
                             </form>

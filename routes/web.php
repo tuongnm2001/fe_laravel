@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +27,11 @@ Route::prefix('admin')->group(function(){
     
     Route::get('/createNewUser', [UserController::class , 'create']);
     Route::post('/createNewUser', [UserController::class , 'store']);
+
+    Route::get('edit/{user}', [UserController::class,'show']);
+
+    Route::delete('/delete/{id}', [UserController::class,'destroy']);
+
 
     Route::get('/dashboard', [HomeController::class , 'dashboard']);
 });

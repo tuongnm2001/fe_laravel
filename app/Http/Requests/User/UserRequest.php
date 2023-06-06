@@ -18,21 +18,26 @@ class UserRequest extends FormRequest{
      *
      * @return array
      */
+    
     public function rules(){
         return [
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',            
+            'name' => 'required | string',
+            'email' => 'required | string',
+            'password' => 'required |confirmed ',   
+            'password_confirmation' => 'required',         
             'email' => 'unique:users'
         ];
     }
 
     public function messages(){
         return [
-            'name.required' => "Vui lòng nhập tên user ",
+            'name.required' => "Vui lòng nhập tên User ",
+            'name.string' => "User không được nhập số",
             'email.required' => "Vui lòng nhập Email ",
+            'email.unique'=> "Email đã tồn tại . Vui lòng thử lại ",
             'password.required' => "Vui lòng nhập mật khẩu ",
-            'email.unique'=> "Email đã tồn tại . Vui lòng thử lại "
+            'password.confirmed'=> 'Mật khẩu mới không khớp vui lòng thử lại',
+            'password_confirmation.required'=>'Vui lòng nhập xác nhận mật khẩu'
         ];   
     }
 }

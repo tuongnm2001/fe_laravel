@@ -1,5 +1,6 @@
 @extends('admin.home')
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
 @section('content')
     <!--begin::Main-->
@@ -126,6 +127,8 @@
                         <!--begin::Card body-->
                         <div class="card-body py-4">
                             <!--begin::Table-->
+                            @include('admin.alert')
+
                             <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_table_users">
                                 <thead>
                                     <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
@@ -147,7 +150,7 @@
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold">
                                     @foreach ($listUsers as $item)                                       
-                                    <tr>
+                                    <tr id="uid{{ $item->id }}">
                                             {{-- <td>
                                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="checkbox" value="1" />
@@ -198,12 +201,21 @@
                                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="../../demo38/dist/apps/user-management/users/view.html" class="menu-link px-3">Edit</a>
+                                                        <a href="/admin/edit/{{ $item->id }}" class="menu-link px-3">Edit</a>
                                                     </div>
                                                     <!--end::Menu item-->
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="#" class="menu-link px-3" data-kt-users-table-filter="delete_row">Delete</a>
+                                                        <a  
+                                                            {{-- data-url="{{ route('destroy.user', $item->id) }}"  --}}
+                                                            id="delete-user"  
+                                                            class="menu-link px-3" 
+                                                            data-kt-users-table-filter="delete_row"
+                                                            href="javascript:void(0)"
+                                                            onclick="deleteUser({{ $item->id }})"
+                                                        >
+                                                            Delete
+                                                        </a>
                                                     </div>
                                                     <!--end::Menu item-->
                                                 </div>
@@ -212,9 +224,26 @@
                                         </tr>
                                         @endforeach
                                 </tbody>
+                                @csrf
                             </table>
                             <!--end::Table-->
                         </div>
+
+                        <script>
+                            function deleteUser(id){
+                                if(confirm('Are you sure you want to delete?')){
+                                    axios.delete(`admin/delete/${id}`)
+                                    .then(function (response) {
+                                        location.reload();
+                                    })
+                                    .catch(function (error) {
+                                        console.log(error);
+                                    });
+                                    
+                                }
+                            }
+                        </script>
+
                         <!--end::Card body-->
                     </div>
                     <!--end::Card-->
@@ -241,3 +270,4 @@
         <!--end::Footer-->
     </div>
 @endsection
+
