@@ -1195,7 +1195,7 @@
                 <!--end::Separator-->
                 
                  <!--begin:Menu item User Management-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                <div data-kt-menu-trigger="click" class="menu-item menu-accordion show">
                     <!--begin:Menu link-->
                     <span class="menu-link">
                         <span class="menu-icon">
@@ -1206,53 +1206,49 @@
                     </span>
                     <!--end:Menu link-->
                     <!--begin:Menu sub-->
-                    <div class="menu-sub menu-sub-accordion">
-                        <!--begin:Menu item-->
-                        <div class="menu-item menu-accordion">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/admin/listService">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">List Servives</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-                        
-                    </div>
 
-                    <div class="menu-sub menu-sub-accordion">
                         <!--begin:Menu item-->
-                        <div class="menu-item menu-accordion">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/admin/createNewUser">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Create New User</span>
-                            </a>
-                            <!--end:Menu link-->
+                        <div class="menu-sub menu-sub-accordion">
+                            <div class="menu-item ">
+                                <!--begin:Menu link-->
+                                <a class="{{ Request::is('users/list') ? 'menu-link active' : ' menu-link' }}" href="/users/list">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">List Servives</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->      
                         </div>
-                        <!--end:Menu item-->
-                        
-                    </div>
 
-                    <div class="menu-sub menu-sub-accordion">
-                        <!--begin:Menu item-->
-                        <div class="menu-item menu-accordion">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/admin/dashboard">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Dashboard</span>
-                            </a>
-                            <!--end:Menu link-->
+                        <div class="menu-sub menu-sub-accordion">
+                            <div class="menu-item ">
+                                <!--begin:Menu link-->
+                                <a class="{{ Request::is('users/create') ? 'menu-link active' : 'menu-link' }}" href="/users/create">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Create user</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->      
                         </div>
-                        <!--end:Menu item-->
-                        
-                    </div>
+
+                        <div class="menu-sub menu-sub-accordion">
+                            <div class="menu-item ">
+                                <!--begin:Menu link-->
+                                <a class="{{ Request::is('users/dashboard') ? ' menu-link active' : 'menu-link' }}" href="/users/dashboard">
+                                    <span class="menu-bullet">
+                                        <span class="bullet bullet-dot"></span>
+                                    </span>
+                                    <span class="menu-title">Dashboard</span>
+                                </a>
+                                <!--end:Menu link-->
+                            </div>
+                            <!--end:Menu item-->      
+                        </div>
                     <!--end:Menu sub-->
                 </div>
             </div>

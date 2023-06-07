@@ -1447,7 +1447,7 @@
 				<div class="app-wrapper flex-column flex-row-fluid" id="kt_app_wrapper">
 
 					<!--begin::Sidebar-->
-						@include('admin.sideBar')
+						@include('admin.sidebar')
 					<!--end::Sidebar-->
 
 					<!--begin::Main-->

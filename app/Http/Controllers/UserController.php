@@ -15,15 +15,15 @@ class UserController extends Controller{
         $this->userService = $userService; 
     }
 
-    public function listService(){
-        return view('admin.listService',[
+    public function list(){
+        return view('admin.list-service',[
             'title'=>"All Registered Users",
             'listUsers' =>$this->userService->getAllUser()
         ]);
     }
 
     public function create(){
-        return view('admin.createNewUser',[
+        return view('admin.create-new-user',[
             'title'=>'Create New User'
         ]);
     }
@@ -40,7 +40,7 @@ class UserController extends Controller{
         ]);
     }
 
-    public function destroy($id){
+    public function destroy(Request $request){
         // try {
         //     User::where($user->id)->delete();
         //     return \response()->json([
@@ -53,18 +53,25 @@ class UserController extends Controller{
         //     ]);
         // }
         
-        try {
-            $user = User::find($id);
+        // try {
+        //     $user = User::find($id);
+        //     $user->delete();
+        //     session()->flash('success', 'Xóa user thành công');
+        //     return response()->json([
+        //         'success'=>'Delete successfully!'
+        //     ]);
+        // } catch (\Exception $th) {
+        //     return \response()->json([
+        //         'success'=> false , 'mgs'=>$e->getMessage()
+        //     ]);
+        // }
+
+        $user = User::find($request->user_delete_id);
+        if($user){
+            // $user->posts()->delete();
             $user->delete();
             session()->flash('success', 'Xóa user thành công');
-            return response()->json([
-                'success'=>'Delete successfully!'
-            ]);
-        } catch (\Exception $th) {
-            return \response()->json([
-                'success'=> false , 'mgs'=>$e->getMessage()
-            ]);
+            return \redirect('users/list');
         }
-
     }
 }

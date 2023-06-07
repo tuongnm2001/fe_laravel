@@ -18,19 +18,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::prefix('admin')->group(function(){
+Route::prefix('users')->group(function(){
 
     Route::get('/home', [HomeController::class , 'index']);
 
     #User
-    Route::get('/listService', [UserController::class , 'listService']);
+    Route::get('/list', [UserController::class , 'list']);
     
-    Route::get('/createNewUser', [UserController::class , 'create']);
-    Route::post('/createNewUser', [UserController::class , 'store']);
+    Route::get('/create', [UserController::class , 'create']);
+    Route::post('/create', [UserController::class , 'store']);
 
     Route::get('edit/{user}', [UserController::class,'show']);
 
-    Route::delete('/delete/{id}', [UserController::class,'destroy']);
+    // Route::delete('/delete/{id}', [UserController::class,'destroy']);
+    Route::post('/delete', [UserController::class,'destroy']);
 
 
     Route::get('/dashboard', [HomeController::class , 'dashboard']);

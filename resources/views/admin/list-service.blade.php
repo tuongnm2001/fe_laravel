@@ -2,6 +2,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
+@include('modal.modal-delete-user')
+
 @section('content')
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -49,7 +51,7 @@
                         <!--end::Page title-->
                         <!--begin::Actions-->
                         <div class="d-flex align-items-center gap-2 gap-lg-3">
-                            <a href="/admin/createNewUser" class="btn btn-flex btn-success h-40px fs-7 fw-bold" >CREATE NEW USER</a>
+                            <a href="/users/create" class="btn btn-flex btn-success h-40px fs-7 fw-bold" >CREATE NEW USER</a>
                         </div>
                         <!--end::Actions-->
                     </div>
@@ -150,7 +152,7 @@
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold">
                                     @foreach ($listUsers as $item)                                       
-                                    <tr id="uid{{ $item->id }}">
+                                        <tr>
                                             {{-- <td>
                                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                                     <input class="form-check-input" type="checkbox" value="1" />
@@ -201,49 +203,32 @@
                                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="/admin/edit/{{ $item->id }}" class="menu-link px-3">Edit</a>
+                                                        <a href="/users/edit/{{ $item->id }}" class="menu-link px-3">Edit</a>
                                                     </div>
                                                     <!--end::Menu item-->
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a  
+                                                        <button
                                                             {{-- data-url="{{ route('destroy.user', $item->id) }}"  --}}
-                                                            id="delete-user"  
-                                                            class="menu-link px-3" 
+                                                            class="btn btn-outline-light menu-link px-3 delete-user" 
                                                             data-kt-users-table-filter="delete_row"
-                                                            href="javascript:void(0)"
-                                                            onclick="deleteUser({{ $item->id }})"
+                                                            value='{{ $item->id }}'
+                                                            {{-- onclick="deleteUser({{ $item->id }})" --}}
                                                         >
                                                             Delete
-                                                        </a>
+                                                        </button>
                                                     </div>
                                                     <!--end::Menu item-->
                                                 </div>
                                                 <!--end::Menu-->
                                             </td>
                                         </tr>
-                                        @endforeach
+                                    @endforeach
                                 </tbody>
                                 @csrf
                             </table>
                             <!--end::Table-->
                         </div>
-
-                        <script>
-                            function deleteUser(id){
-                                if(confirm('Are you sure you want to delete?')){
-                                    axios.delete(`admin/delete/${id}`)
-                                    .then(function (response) {
-                                        location.reload();
-                                    })
-                                    .catch(function (error) {
-                                        console.log(error);
-                                    });
-                                    
-                                }
-                            }
-                        </script>
-
                         <!--end::Card body-->
                     </div>
                     <!--end::Card-->
@@ -271,3 +256,25 @@
     </div>
 @endsection
 
+
+ <script>
+    // function deleteUser(id){
+    //     if(confirm('Are you sure you want to delete?')){
+    //         axios.delete(`admin/delete/${id}`)
+    //         .then(function (response) {
+    //             location.reload();
+    //         })
+    //         .catch(function (error) {
+    //             console.log(error);
+    //         });   
+    //     }
+    // }
+    $(document).ready(function(){
+        $(document).on('click', '.delete-user', function(e){
+            e.preventDefault();
+            var user_id = $(this).val();
+            $('#user_id').val(user_id);
+            $('#deleteModal').modal('show');
+        });
+    });
+</script>
