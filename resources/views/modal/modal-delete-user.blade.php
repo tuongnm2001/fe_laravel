@@ -1,7 +1,7 @@
 <div class="modal fade" tabindex="-1" id="deleteModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form action="{{ url('users/delete') }}" method="POST">
+            <form action="{{ route('users.destroy') }}" method="POST">
                 @csrf
                 <div class="modal-header">
                     <h3 class="modal-title">Delete User</h3>

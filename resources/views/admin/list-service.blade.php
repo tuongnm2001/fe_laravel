@@ -2,8 +2,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-@include('modal.modal-delete-user')
-
 @section('content')
     <!--begin::Main-->
     <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
@@ -51,7 +49,7 @@
                         <!--end::Page title-->
                         <!--begin::Actions-->
                         <div class="d-flex align-items-center gap-2 gap-lg-3">
-                            <a href="/users/create" class="btn btn-flex btn-success h-40px fs-7 fw-bold" >CREATE NEW USER</a>
+                            <a href="{{ route('users.create') }}" class="btn btn-flex btn-success h-40px fs-7 fw-bold" >CREATE NEW USER</a>
                         </div>
                         <!--end::Actions-->
                     </div>
@@ -203,7 +201,8 @@
                                                 <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
                                                     <!--begin::Menu item-->
                                                     <div class="menu-item px-3">
-                                                        <a href="/users/edit/{{ $item->id }}" class="menu-link px-3">Edit</a>
+                                                        {{-- <a href="/users/edit/{{ $item->id }}" class="menu-link px-3">Edit</a> --}}
+                                                        <a href="{{ route('users.edit' , $item->id) }}" class="menu-link px-3">Edit</a>
                                                     </div>
                                                     <!--end::Menu item-->
                                                     <!--begin::Menu item-->
@@ -254,21 +253,11 @@
         </div>
         <!--end::Footer-->
     </div>
+@include('modal.modal-delete-user')
+
 @endsection
 
-
  <script>
-    // function deleteUser(id){
-    //     if(confirm('Are you sure you want to delete?')){
-    //         axios.delete(`admin/delete/${id}`)
-    //         .then(function (response) {
-    //             location.reload();
-    //         })
-    //         .catch(function (error) {
-    //             console.log(error);
-    //         });   
-    //     }
-    // }
     $(document).ready(function(){
         $(document).on('click', '.delete-user', function(e){
             e.preventDefault();

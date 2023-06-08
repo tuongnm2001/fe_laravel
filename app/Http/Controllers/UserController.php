@@ -68,10 +68,9 @@ class UserController extends Controller{
 
         $user = User::find($request->user_delete_id);
         if($user){
-            // $user->posts()->delete();
             $user->delete();
             session()->flash('success', 'Xóa user thành công');
-            return \redirect('users/list');
+            return \redirect(route('user.list'));
         }
     }
 }

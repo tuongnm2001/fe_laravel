@@ -3,8 +3,8 @@
     <div class="app-sidebar-header d-flex flex-stack d-none d-lg-flex pt-8 pb-2" id="kt_app_sidebar_header">
         <!--begin::Logo-->
         <a href="https://www.vira.vn/" class="app-sidebar-logo">
-            <img alt="Logo" src="assets/media/logos/vira-logo.png" class="h-25px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
-            <img alt="Logo" src="assets/media/logos/vira-logo.png" class="h-20px h-lg-25px theme-dark-show" />
+            <img alt="Logo" src="{{ asset('assets/media/logos/vira-logo.png') }}" class="h-25px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
+            <img alt="Logo" src="{{ asset('assets/media/logos/vira-logo.png') }}" class="h-20px h-lg-25px theme-dark-show" />
         </a>
         <!--end::Logo-->
         <!--begin::Sidebar toggle-->
@@ -1211,7 +1211,7 @@
                         <div class="menu-sub menu-sub-accordion">
                             <div class="menu-item ">
                                 <!--begin:Menu link-->
-                                <a class="{{ Request::is('users/list') ? 'menu-link active' : ' menu-link' }}" href="/users/list">
+                                <a class="{{ Request::url() === route('user.list') ? 'menu-link active' : 'menu-link' }}" href="{{ route('user.list') }}">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -1225,7 +1225,7 @@
                         <div class="menu-sub menu-sub-accordion">
                             <div class="menu-item ">
                                 <!--begin:Menu link-->
-                                <a class="{{ Request::is('users/create') ? 'menu-link active' : 'menu-link' }}" href="/users/create">
+                                <a class="{{ Request::url() === route('users.create') ? 'menu-link active' : 'menu-link' }}" href="{{ route('users.create') }}">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -1239,7 +1239,7 @@
                         <div class="menu-sub menu-sub-accordion">
                             <div class="menu-item ">
                                 <!--begin:Menu link-->
-                                <a class="{{ Request::is('users/dashboard') ? ' menu-link active' : 'menu-link' }}" href="/users/dashboard">
+                                <a class="{{ Request::url() === route('users.dashboard') ? ' menu-link active' : 'menu-link' }}" href="{{ route('users.dashboard') }}">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

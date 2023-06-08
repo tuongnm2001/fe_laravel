@@ -15,7 +15,7 @@ use App\Http\Controllers\UserController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.welcome');
 });
 
 Route::prefix('users')->group(function(){
@@ -23,16 +23,16 @@ Route::prefix('users')->group(function(){
     Route::get('/home', [HomeController::class , 'index']);
 
     #User
-    Route::get('/list', [UserController::class , 'list']);
+    Route::get('/list', [UserController::class , 'list'])->name('user.list');
     
-    Route::get('/create', [UserController::class , 'create']);
-    Route::post('/create', [UserController::class , 'store']);
+    Route::get('/create', [UserController::class , 'create'])->name('users.create');
+    Route::post('/create', [UserController::class , 'store'])->name('users.create');
 
-    Route::get('edit/{user}', [UserController::class,'show']);
+    Route::get('edit/{user}', [UserController::class,'show'])->name('users.edit');
 
     // Route::delete('/delete/{id}', [UserController::class,'destroy']);
-    Route::post('/delete', [UserController::class,'destroy']);
+    Route::post('/delete', [UserController::class,'destroy'])->name('users.destroy');
 
 
-    Route::get('/dashboard', [HomeController::class , 'dashboard']);
+    Route::get('/dashboard', [HomeController::class , 'dashboard'])->name('users.dashboard');
 });
