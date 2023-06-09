@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::prefix('users')->group(function(){
 
-    Route::get('/home', [HomeController::class , 'index']);
+    Route::get('/home', [HomeController::class , 'index'])->name('home');
 
     #User
     Route::get('/list', [UserController::class , 'list'])->name('user.list');

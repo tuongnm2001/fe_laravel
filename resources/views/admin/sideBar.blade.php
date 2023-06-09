@@ -3,8 +3,8 @@
     <div class="app-sidebar-header d-flex flex-stack d-none d-lg-flex pt-8 pb-2" id="kt_app_sidebar_header">
         <!--begin::Logo-->
         <a href="https://www.vira.vn/" class="app-sidebar-logo">
-            <img alt="Logo" src="{{ asset('assets/media/logos/vira-logo.png') }}" class="h-25px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
-            <img alt="Logo" src="{{ asset('assets/media/logos/vira-logo.png') }}" class="h-20px h-lg-25px theme-dark-show" />
+            <img alt="Logo" src="{{ asset('public/assets/media/logos/vira-logo.png') }}" class="h-25px d-none d-sm-inline app-sidebar-logo-default theme-light-show" />
+            <img alt="Logo" src="{{ asset('public/assets/media/logos/vira-logo.png') }}" class="h-20px h-lg-25px theme-dark-show" />
         </a>
         <!--end::Logo-->
         <!--begin::Sidebar toggle-->

@@ -14,16 +14,16 @@
 		<meta property="og:url" content="https://keenthemes.com/metronic" />
 		<meta property="og:site_name" content="Keenthemes | Metronic" />
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-		<link rel="shortcut icon" href="assets/media/logos/vira-favicon.png" />
+		<link rel="shortcut icon" href="{{ asset('/public/assets/media/logos/vira-favicon.png') }}" />
 		<!--begin::Fonts(mandatory for all pages)-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Vendor Stylesheets(used for this page only)-->
-		<link href="{{ asset('assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('public/assets/plugins/custom/datatables/datatables.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-		<link href="{{ asset('assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-		<link href="{{ asset('assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('public/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+		<link href="{{ asset('public/assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -49,7 +49,7 @@
 							</div>
 							<!--begin::Logo image-->
 							<a href="../../demo38/dist/index.html">
-								<img alt="Logo" src="assets/media/logos/demo38-small.svg" class="h-30px" />
+								<img alt="Logo" src="{{ asset('public/assets/media/logos/demo38-small.svg') }}" class="h-30px" />
 							</a>
 							<!--end::Logo image-->
 						</div>
@@ -104,7 +104,7 @@
 													<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 														<!--begin::Symbol-->
 														<div class="symbol symbol-40px me-4">
-															<img src="assets/media/avatars/300-6.jpg" alt="" />
+															<img src="{{ asset('public/assets/media/avatars/300-6.jpg') }}" alt="" />
 														</div>
 														<!--end::Symbol-->
 														<!--begin::Title-->
@@ -1225,7 +1225,7 @@
 							<div class="app-navbar-item ms-1 ms-md-3" id="kt_header_user_menu_toggle">
 								<!--begin::Menu wrapper-->
 								<div class="cursor-pointer symbol symbol-circle symbol-35px symbol-md-45px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-									<img src="{{ asset('assets/media/avatars/1.jpg') }}" alt="user" />
+									<img src="{{ asset('public/assets/media/avatars/1.jpg') }}" alt="user" />
 								</div>
 								<!--begin::User account menu-->
 								<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -1234,7 +1234,7 @@
 										<div class="menu-content d-flex align-items-center px-3">
 											<!--begin::Avatar-->
 											<div class="symbol symbol-50px me-5">
-												<img alt="Logo" src="{{ asset('assets/media/avatars/300-2.jpg') }}" />
+												<img alt="Logo" src="{{ asset('/public/assets/media/avatars/300-2.jpg') }}" />
 											</div>
 											<!--end::Avatar-->
 											<!--begin::Username-->
@@ -5596,22 +5596,22 @@
 		<!--begin::Javascript-->
 		<script>var hostUrl = "assets/";</script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-		<script src="{{ asset('assets/plugins/global/plugins.bundle.js') }}"></script>
-		<script src="{{ asset('assets/js/scripts.bundle.js') }}"></script>
+		<script src="{{ asset('public/assets/plugins/global/plugins.bundle.js') }}"></script>
+		<script src="{{ asset('public/assets/js/scripts.bundle.js') }}"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="{{ asset('assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
+		<script src="{{ asset('public/assets/plugins/custom/datatables/datatables.bundle.js') }}"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="{{ asset('assets/js/custom/apps/user-management/users/list/table.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/apps/user-management/users/list/export-users.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/apps/user-management/users/list/add.js') }}"></script>
-		<script src="{{ asset('assets/js/widgets.bundle.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/widgets.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/apps/chat/chat.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/utilities/modals/create-campaign.js') }}"></script>
-		<script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/apps/user-management/users/list/table.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/apps/user-management/users/list/export-users.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/apps/user-management/users/list/add.js') }}"></script>
+		<script src="{{ asset('public/assets/js/widgets.bundle.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/widgets.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/apps/chat/chat.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/utilities/modals/create-campaign.js') }}"></script>
+		<script src="{{ asset('public/assets/js/custom/utilities/modals/users-search.js') }}"></script>
 
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
